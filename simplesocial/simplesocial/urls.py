@@ -21,5 +21,8 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',views.HomePage.as_view(),name = "Home"),
+    path(r'accounts/',include('accounts.urls',namespace="accounts")),
+    path(r'accounts/',include('django.contrib.auth.urls')), #enables to connect all under django
+    
 
 ]
