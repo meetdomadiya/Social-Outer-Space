@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'bootstrap5',
     'accounts',
+    'groups',
+    'posts',
 ]
 
 MIDDLEWARE = [

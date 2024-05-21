@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils import reverse
-from django.conf import settings
+from django.urls import reverse
 import misaka   
 
 from groups.models import Group
@@ -10,11 +9,11 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Post(models.Model):
-    user = models.ForeignKey(User, related_name='posts')
+    user = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now = True)
     message = models.TextField()
     message_html = models.TextField(editable=False)
-    group = models.ForeignKey(Group,related_name='post',null = True,blank=True)
+    group = models.ForeignKey(Group,related_name='post',null = True,blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.message
@@ -29,7 +28,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        unique_togather = ['user','message']
+        unique_together = ['user','message']
         
 
 

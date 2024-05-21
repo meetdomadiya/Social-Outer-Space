@@ -31,9 +31,9 @@ class Group(models.Model):
     class meta:
         ordering = ['name']
 
-class GruopMember(models.Model):
-    group = models.ForeignKey(Group,related_name='membership') #linked to groups by membership
-    user = models.ForeignKey(User, related_name='user_groups')
+class GroupMember(models.Model):
+    group = models.ForeignKey(Group,related_name='membership', on_delete=models.CASCADE) #linked to groups by membership
+    user = models.ForeignKey(User, related_name='user_groups', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username

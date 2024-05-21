@@ -23,12 +23,12 @@
                 <a class="navbar-brand mb-0 h1" href="{% url 'Home' %}">Star Social</a>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
-                    <li class="nav-item "><a class="nav-link active" href="#">Post</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Groups</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Create Group</a></li>
+                    <li class="nav-item "><a class="nav-link active" href="{% url 'posts:create' %}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'groups:all' %}">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'groups:create' %}">Create Group</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'accounts:logout' %}">Logout</a></li>
                     {% else %} 
-                    <li class="nav-item"><a class="nav-link active" href="#">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'groups:all' %}">Groups</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'accounts:login' %}">Login</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'accounts:signup' %}">Sign Up</a></li>
                     {% endif %} 

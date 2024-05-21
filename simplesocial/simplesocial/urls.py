@@ -25,5 +25,6 @@ urlpatterns = [
     path(r'^accounts/',include('django.contrib.auth.urls')), #enables to connect all under django
     path(r'^test/$',views.TestPage.as_view(),name="test"),
     path(r'^thanks/$',views.ThanksPage.as_view(),name="thanks"),
-
+    path(r'posts/',include('posts.urls',namespace='posts')),
+    path(r'groups/',include('groups.urls',namespace='groups')),
 ]

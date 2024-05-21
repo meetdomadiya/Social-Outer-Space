@@ -6,7 +6,7 @@ from django.contrib import messages
 from . import models
 
 
-from groups.models import Group,GruopMember
+from groups.models import Group, GroupMember
 # Create your views here.
 
 class CreateGroup(LoginRequiredMixin,generic.CreateView):
@@ -28,7 +28,7 @@ class JoinGroup(LoginRequiredMixin,generic.RedirectView):
         group = get_object_or_404(Group, slug = self.kwargs.get('slug'))
 
         try:
-            GruopMember.objects.create(user=self.request.user, group = group)
+            GroupMember.objects.create(user=self.request.user, group = group)
 
         except:
             messages.warning(self.request,('Warning Already a member'))

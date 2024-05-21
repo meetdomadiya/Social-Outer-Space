@@ -1,5 +1,5 @@
 <!-- post_list -->
-{% extends "posts/post_base,html" %}
+{% extends "posts/post_base.html" %}
 
 {% block pre_post_content %}
 <div class="col-md-4">
@@ -11,7 +11,7 @@
             <ul class="'list-unstyled">
                 {% for member_group in get_user_groups %}
                 <li class="group li-with-bullet">
-                    <a href="{% url 'groups:single' slug = member_group.group.slug %}"></a>
+                    <a href="{% url 'groups:single' slug=member_group.group.slug %}"></a>
                 </li>
                 {% endfor %}
             </ul>
